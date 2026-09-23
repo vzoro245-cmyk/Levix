@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baixar LEVIX</title>
+<meta name="description" content="LEVIX — Gerador de trabalhos académicos com IA. Baixe o APK oficial.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
+<style>
+  :root{
+    --bg-1:#0b0f1a;
+    --bg-2:#141b2e;
+    --accent-1:#6d5cff;
+    --accent-2:#00d4ff;
+    --text-main:#f2f4fb;
+    --text-dim:#9aa4c0;
+    --card-bg:rgba(255,255,255,0.06);
+    --card-border:rgba(255,255,255,0.12);
+    --success:#3ddc84;
+    --danger:#ff6b6b;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:'Segoe UI',system-ui,-apple-system,Roboto,sans-serif;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(109,92,255,0.25), transparent 45%),
+      radial-gradient(circle at 80% 80%, rgba(0,212,255,0.2), transparent 45%),
+      linear-gradient(160deg, var(--bg-1), var(--bg-2));
+    color:var(--text-main);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .card{
+    width:100%;
+    max-width:420px;
+    background:var(--card-bg);
+    border:1px solid var(--card-border);
+    border-radius:24px;
+    padding:36px 28px;
+    text-align:center;
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    box-shadow:0 20px 60px rgba(0,0,0,0.45);
+    animation:fadeIn .6s ease;
+  }
+  @keyframes fadeIn{
+    from{opacity:0;transform:translateY(16px);}
+    to{opacity:1;transform:translateY(0);}
+  }
+  .logo{
+    width:72px;
+    height:72px;
+    margin:0 auto 16px;
+    border-radius:20px;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    font-weight:800;
+    color:#fff;
+    box-shadow:0 8px 24px rgba(109,92,255,0.4);
+  }
+  h1{
+    font-size:2rem;
+    letter-spacing:2px;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+    margin-bottom:6px;
+  }
+  .tagline{
+    color:var(--text-dim);
+    font-size:0.95rem;
+    margin-bottom:24px;
+  }
+  #version{
+    display:inline-block;
+    font-size:0.85rem;
+    color:var(--text-dim);
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--card-border);
+    padding:6px 14px;
+    border-radius:999px;
+    margin-bottom:22px;
+  }
+  #version.loaded{ color:var(--success); border-color:rgba(61,220,132,0.3); }
+  #version.error{ color:var(--danger); border-color:rgba(255,107,107,0.3); }
+
+  .button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    width:100%;
+    padding:16px 20px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--accent-1),var(--accent-2));
+    color:#fff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:1.05rem;
+    transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+    box-shadow:0 10px 30px rgba(109,92,255,0.35);
+    cursor:pointer;
+    border:none;
+  }
+  .button:hover{ transform:translateY(-2px); box-shadow:0 14px 36px rgba(109,92,255,0.5); }
+  .button[disabled]{
+    opacity:.55;
+    pointer-events:none;
+    box-shadow:none;
+  }
+  .button .icon{ font-size:1.2rem; }
+
+  .meta-row{
+    display:flex;
+    justify-content:space-between;
+    margin-top:14px;
+    font-size:0.78rem;
+    color:var(--text-dim);
+  }
+
+  .qr-container{
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid var(--card-border);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+  }
+  .qr-wrap{
+    background:#fff;
+    padding:10px;
+    border-radius:16px;
+    box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    line-height:0;
+  }
+  #qr-code{
+    width:160px;
+    height:160px;
+    display:block;
+    border-radius:8px;
+    background:#fff;
+  }
+  .qr-label{
+    font-size:0.8rem;
+    color:var(--text-dim);
+    letter-spacing:0.5px;
+  }
+
+  .footer{
+    margin-top:28px;
+    font-size:0.75rem;
+    color:var(--text-dim);
+    opacity:0.7;
+  }
+  .footer a{ color:var(--accent-2); text-decoration:none; }
+
+  @media (max-width:420px){
+    .card{ padding:28px 20px; border-radius:20px; }
+    h1{ font-size:1.7rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">L</div>
+    <h1>LEVIX</h1>
+    <p class="tagline">Gerador de trabalhos académicos com IA</p>
+
+    <div id="version">A carregar versão...</div>
+
+    <a id="download-link" href="#" class="button" disabled>
+      <span class="icon">⬇️</span>
+      <span id="download-label">A carregar...</span>
+    </a>
+
+    <div class="meta-row">
+      <span id="release-date"></span>
+      <span id="release-size"></span>
+    </div>
+
+    <div class="qr-container" id="qr-container" style="display:none;">
+      <div class="qr-wrap">
+        <img id="qr-code" src="" alt="QR Code para baixar o LEVIX" />
+      </div>
+      <p class="qr-label">Escaneie para baixar</p>
+    </div>
+
+    <p class="footer">© 2026 LEVIX · <a href="https://github.com/vzoro245-cmyk/Levix" target="_blank" rel="noopener">Ver no GitHub</a></p>
+  </div>
+
+  <script>
+    const REPO_OWNER = 'vzoro245-cmyk';
+    const REPO_NAME = 'Levix';
+    const API_URL = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/releases/latest`;
+
+    function formatBytes(bytes) {
+      if (!bytes) return '';
+      const mb = bytes / (1024 * 1024);
+      return mb >= 1 ? `${mb.toFixed(1)} MB` : `${(bytes / 1024).toFixed(0)} KB`;
+    }
+
+    function formatDate(dateStr) {
+      if (!dateStr) return '';
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    async function fetchLatestRelease() {
+      const versionEl = document.getElementById('version');
+      const linkEl = document.getElementById('download-link');
+      const labelEl = document.getElementById('download-label');
+      const qrContainer = document.getElementById('qr-container');
+      const qrEl = document.getElementById('qr-code');
+      const dateEl = document.getElementById('release-date');
+      const sizeEl = document.getElementById('release-size');
+
+      try {
+        const response = await fetch(API_URL, {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
+
+        if (response.status === 404) {
+          throw new Error('NO_RELEASES');
+        }
+        if (!response.ok) {
+          throw new Error('API_ERROR');
+        }
+
+        const data = await response.json();
+        const apkAsset = (data.assets || []).find(asset => asset.name.endsWith('.apk'));
+
+        versionEl.innerText = `Versão ${data.tag_name}`;
+        versionEl.classList.add('loaded');
+
+        if (apkAsset) {
+          const apkUrl = apkAsset.browser_download_url;
+
+          linkEl.href = apkUrl;
+          linkEl.removeAttribute('disabled');
+          labelEl.innerText = 'Baixar APK';
+
+          dateEl.innerText = formatDate(data.published_at);
+          sizeEl.innerText = formatBytes(apkAsset.size);
+
+          qrEl.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data=${encodeURIComponent(apkUrl)}`;
+          qrContainer.style.display = 'flex';
+        } else {
+          labelEl.innerText = 'APK não encontrado nesta release';
+          linkEl.setAttribute('disabled', 'true');
+        }
+      } catch (error) {
+        versionEl.innerText = 'Nenhuma versão disponível ainda';
+        versionEl.classList.add('error');
+        labelEl.innerText = 'Em breve';
+        linkEl.setAttribute('disabled', 'true');
+      }
+    }
+
+    fetchLatestRelease();
+  </script>
+</body>
+</html>
