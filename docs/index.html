@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Baixar LEVIX</title>
-<meta name="description" content="LEVIX — Gerador de trabalhos académicos com IA. Baixe o APK oficial.">
+<meta name="description" content="LEVIX — Gerador de trabalhos académicos com IA. Baixe o APK oficial ou instale o PWA.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>">
 <style>
   :root{
@@ -163,6 +163,20 @@
   }
   .footer a{ color:var(--accent-2); text-decoration:none; }
 
+  #ios-instructions{
+    display:none;
+    margin-top:16px;
+    padding:12px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid var(--card-border);
+    border-radius:12px;
+    font-size:0.85rem;
+    color:var(--text-dim);
+    text-align:left;
+    line-height:1.5;
+  }
+  #ios-instructions strong{ color:var(--text-main); }
+
   @media (max-width:420px){
     .card{ padding:28px 20px; border-radius:20px; }
     h1{ font-size:1.7rem; }
@@ -181,6 +195,23 @@
       <span class="icon">⬇️</span>
       <span id="download-label">A carregar...</span>
     </a>
+
+    <button id="install-pwa-btn" class="button" style="display:none; margin-top:12px;">
+      <span class="icon">📲</span>
+      <span>Instalar App (PWA)</span>
+    </button>
+
+    <a id="open-web-link" class="button"
+       style="margin-top:12px; background:linear-gradient(135deg,#00d4ff,#3ddc84);"
+       href="https://vzoro245-cmyk.github.io/Levix/pwa/" target="_blank" rel="noopener">
+      <span class="icon">🌐</span>
+      <span>Abrir versão web</span>
+    </a>
+
+    <div id="ios-instructions">
+      <strong>No iPhone/iPad:</strong> toca em <em>Partilhar</em>
+      (ícone quadrado com seta) → <em>Adicionar ao Ecrã Principal</em>.
+    </div>
 
     <div class="meta-row">
       <span id="release-date"></span>
@@ -266,6 +297,29 @@
     }
 
     fetchLatestRelease();
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      window.deferredPrompt = e;
+      const btn = document.getElementById('install-pwa-btn');
+      if (btn) btn.style.display = 'flex';
+    });
+
+    const installBtn = document.getElementById('install-pwa-btn');
+    if (installBtn) {
+      installBtn.addEventListener('click', async () => {
+        if (!window.deferredPrompt) return;
+        window.deferredPrompt.prompt();
+        const { outcome } = await window.deferredPrompt.userChoice;
+        if (outcome === 'accepted') installBtn.style.display = 'none';
+        window.deferredPrompt = null;
+      });
+    }
+
+    if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {
+      const ios = document.getElementById('ios-instructions');
+      if (ios) ios.style.display = 'block';
+    }
   </script>
 </body>
 </html>
